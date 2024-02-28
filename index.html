@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title></title>
+    <title>CountDown</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="css/style.css" rel="stylesheet" />
     <script src="./index.js"></script>
   </head>
-  <body>
+  <body onload={loadingTimer()}>
     <header>
       <h1>This is COUNTDOWN Task</h1>
     </header>
@@ -20,9 +20,9 @@
         </h3>
       </div>
       <div>
-        <button onclick={btnStart()}>START</button>
-        <button onclick={btnReset()}>RESET</button>
-        <button onclick={btnStop()}>STOP</button>
+        <button id="start" onclick="{btnStart()}">START</button>
+        <button id="reset" onclick="{btnReset()}" disabled>RESET</button>
+        <button id="stop" onclick="{btnStop()}" disabled>STOP</button>
       </div>
     </main>
   </body>

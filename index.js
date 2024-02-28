@@ -1,10 +1,30 @@
-
 let second = 0;
 let minutes = 2;
 let timerInterval;
 
+const loadingTimer = () => {
+  second = Number(document.cookie.substring(7));
+  minutes = Number(document.cookie.substring(5, 6));
+  console.log(document.cookie)
+  if (document.cookie === "time=0:0") {
+    clearInterval(timerInterval);
+    second = 0;
+    minutes = 2;
+  }
+ 
+  if (second >= 10) {
+    document.getElementById("sec").innerHTML = second;
+  } else {
+    document.getElementById("sec").innerHTML = "0" + second;
+  }
+  document.getElementById("min").innerHTML = "0" + minutes + ":";
+  
+};
+
 const secondDown = () => {
   second -= 1;
+  document.cookie = "time=" + minutes + ":" + second;
+
   if (second === 59) {
     minutes -= 1;
   }
@@ -16,45 +36,53 @@ const secondDown = () => {
     clearInterval(timerInterval);
     second = 0;
     minutes = 0;
-    // document.getElementById("sec").innerHTML = "0" + 0 + ":";
-    // document.getElementById("min").innerHTML = "0" + 0 + ":";
-    // 0;
   }
   if (second >= 10) {
     document.getElementById("sec").innerHTML = second;
   } else {
-    document.getElementById("sec").innerHTML =  "0" + second;
+    document.getElementById("sec").innerHTML = "0" + second;
   }
-
   document.getElementById("min").innerHTML = "0" + minutes + ":";
 };
+
 const minutesDown = () => {
   document.getElementById("min").innerHTML = minutes;
 };
 
 const btnStart = () => {
+  document.getElementById("start").disabled = true;
+  document.getElementById("stop").disabled = false;
+  document.getElementById("reset").disabled = false;
   if (second === 0) {
     second = 60;
     timerInterval = setInterval(() => {
       secondDown();
     }, 1000);
   } else {
-    // timerInterval = setInterval(() => {
-    //     secondDown();
-    //   }, 1000);
+    second;
+    timerInterval = setInterval(() => {
+      secondDown();
+    }, 1000);
   }
 
   console.log("it is ok");
 };
 
 const btnStop = () => {
+  document.getElementById("start").disabled = false;
+  document.getElementById("stop").disabled = true;
+  document.getElementById("reset").disabled = false;
   clearInterval(timerInterval);
   console.log("it is ok stop");
 };
 
 const btnReset = () => {
+  document.getElementById("start").disabled = false;
+  document.getElementById("stop").disabled = true;
+  document.getElementById("reset").disabled = true;
   clearInterval(timerInterval);
   second = 0;
   minutes = 2;
-  console.log("it is ok reset");
+  document.getElementById("sec").innerHTML = "0" + second;
+  document.getElementById("min").innerHTML = "0" + minutes + ":";
 };
