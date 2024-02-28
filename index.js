@@ -5,20 +5,18 @@ let timerInterval;
 const loadingTimer = () => {
   second = Number(document.cookie.substring(7));
   minutes = Number(document.cookie.substring(5, 6));
-  console.log(document.cookie)
   if (document.cookie === "time=0:0") {
     clearInterval(timerInterval);
     second = 0;
     minutes = 2;
   }
- 
+
   if (second >= 10) {
     document.getElementById("sec").innerHTML = second;
   } else {
     document.getElementById("sec").innerHTML = "0" + second;
   }
   document.getElementById("min").innerHTML = "0" + minutes + ":";
-  
 };
 
 const secondDown = () => {
@@ -64,8 +62,6 @@ const btnStart = () => {
       secondDown();
     }, 1000);
   }
-
-  console.log("it is ok");
 };
 
 const btnStop = () => {
@@ -73,7 +69,6 @@ const btnStop = () => {
   document.getElementById("stop").disabled = true;
   document.getElementById("reset").disabled = false;
   clearInterval(timerInterval);
-  console.log("it is ok stop");
 };
 
 const btnReset = () => {
