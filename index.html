@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>This is COUNTDOWN Task</h1>
+    </header>
+    <main>
+      <div>
+        <h3>
+          <span> 00:</span>
+          <span id="min"> 02:</span>
+          <span id="sec"> 00</span>
+        </h3>
+      </div>
+      <div>
+        <button onclick={btnStart()}>START</button>
+        <button onclick={btnReset()}>RESET</button>
+        <button onclick={btnStop()}>STOP</button>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+main {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #63550e;
+}
+
+main > div {
+  padding: 1rem;
+}
+
+h3 {
+  font-style: italic;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+button {
+  padding: 0.5rem;
+  background-color: #d8ce99;
+  border: 1px solid #9b9160b4;
+  border-radius: 5px;
+  margin: 0.5rem;
+}
